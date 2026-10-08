@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Identity and Access Management engineer portfolio: SSO, MFA, governance and privileged access."><meta name="theme-color" content="#050a16"><link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>"><title>Your Name — Identity and Access Management</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Sora:wght@500;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#050a16;--drawer:#09112a;--ink:#e9eefc;--mute:#8f9bc0;--line:rgba(143,155,192,.22);--acc:#ffb547;--cool:#6ea8ff;--ok:#4fe3b4;--no:#ff6178;--panel:rgba(9,16,38,.7);--glow:rgba(110,168,255,.16);color-scheme:dark;
+--hd:'Sora',system-ui,-apple-system,'Segoe UI',sans-serif;--bd:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box;margin:0}
+body{background:radial-gradient(60% 50% at 50% 45%,var(--glow),transparent 70%),var(--bg);color:var(--ink);font:400 16px/1.6 var(--bd);-webkit-font-smoothing:antialiased}
+#gl{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+header{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;z-index:2;display:flex;justify-content:space-between;align-items:center;padding:18px clamp(20px,5vw,72px)}
+.brand{font:800 17px var(--hd);letter-spacing:-.01em}
+.live{font-size:13px;color:var(--mute);display:flex;align-items:center;gap:8px}
+.live i{width:8px;height:8px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 0 var(--ok);animation:ping 2s infinite}
+button:focus-visible,a:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+.hero{position:relative;z-index:1;display:grid;grid-template-columns:1.15fr .85fr;grid-template-areas:"intro badge" "tiles tiles" "foot foot";align-content:center;gap:44px 40px;min-height:100svh;padding:110px clamp(20px,5vw,72px) 48px}
+.intro{grid-area:intro;align-self:center}
+h1{font:800 clamp(2.6rem,6.4vw,5.4rem)/1 var(--hd);letter-spacing:-.045em}
+.role{margin-top:18px;font:600 clamp(1.05rem,2vw,1.45rem) var(--hd);color:var(--acc)}
+.intro p{margin-top:14px;max-width:42ch;color:var(--mute);font-size:clamp(1rem,1.6vw,1.15rem)}
+.badge{grid-area:badge;justify-self:center;width:min(300px,100%);background:var(--panel);border:1px solid var(--line);border-radius:22px;padding:14px;backdrop-filter:blur(10px);box-shadow:0 30px 60px -30px rgba(0,0,0,.5);transform:perspective(900px) rotateY(var(--ry,0deg)) rotateX(var(--rx,0deg));transition:transform .2s}
+.bh{display:flex;justify-content:space-between;align-items:center;font:500 13px var(--bd);color:var(--mute);padding:2px 4px 12px}
+.bh::after{content:"";width:34px;height:6px;border-radius:9px;background:var(--line)}
+.photo{position:relative;aspect-ratio:4/5;border-radius:14px;overflow:hidden;background:linear-gradient(160deg,var(--glow),transparent);border:1px solid var(--line);display:grid;place-items:center;text-align:center;color:var(--mute);font-size:13px}
+.photo svg{position:absolute;inset:0;width:100%;height:100%}
+.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.photo span.t{position:absolute;bottom:14px;left:0;right:0}
+.scan{position:absolute;left:0;right:0;top:0;height:2px;background:linear-gradient(90deg,transparent,var(--acc),transparent);box-shadow:0 0 18px var(--acc);animation:sweep 3.6s ease-in-out infinite}
+.photo b{position:absolute;width:18px;height:18px;border:2px solid var(--acc)}
+.tl{top:8px;left:8px;border-right:0!important;border-bottom:0!important}.tr{top:8px;right:8px;border-left:0!important;border-bottom:0!important}
+.bl{bottom:8px;left:8px;border-right:0!important;border-top:0!important}.br{bottom:8px;right:8px;border-left:0!important;border-top:0!important}
+.bf{padding:14px 4px 4px}.bf strong{display:block;font:600 1.15rem var(--hd)}.bf small{color:var(--mute);font-size:13px}
+.ver{display:inline-flex;align-items:center;gap:6px;margin-top:10px;font-size:12px;font-weight:500;color:var(--ok);border:1px solid var(--ok);border-radius:99px;padding:3px 10px}
+.tiles{grid-area:tiles;display:grid;grid-template-columns:repeat(auto-fit,minmax(165px,1fr));gap:14px}
+.tile{position:relative;text-align:left;font:inherit;color:var(--ink);background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px 18px 18px;cursor:pointer;backdrop-filter:blur(10px);overflow:hidden;transition:transform .25s,border-color .25s}
+.tile::before{content:"";position:absolute;left:0;top:0;height:3px;width:34%;background:var(--acc);transition:width .35s}
+.tile:hover,.tile:focus-visible{transform:translateY(-4px);border-color:var(--acc)}.tile:hover::before,.tile:focus-visible::before{width:100%}
+.tile b{display:block;font:600 1.05rem var(--hd);margin-bottom:4px}.tile span{font-size:13px;color:var(--mute);line-height:1.4;display:block}
+.rise{animation:rise .9s cubic-bezier(.2,.8,.2,1) 1.8s both}.d1{animation-delay:1.95s}.d2{animation-delay:2.15s}
+#veil{position:fixed;inset:0;z-index:5;background:rgba(3,7,16,.5);backdrop-filter:blur(3px);opacity:0;pointer-events:none;transition:opacity .35s}
+.open #veil{opacity:1;pointer-events:auto}
+#drawer{position:fixed;top:0;right:0;bottom:0;z-index:6;width:min(600px,100%);background:var(--drawer);border-left:1px solid var(--line);display:flex;flex-direction:column;transform:translateX(104%);visibility:hidden;transition:transform .55s cubic-bezier(.2,.8,.2,1),visibility 0s .55s;padding-top:env(safe-area-inset-top,0px)}
+.open #drawer{transform:none;visibility:visible;transition:transform .55s cubic-bezier(.2,.8,.2,1)}
+.dh{display:flex;justify-content:space-between;align-items:center;padding:22px 28px;border-bottom:1px solid var(--line)}
+.dh h2{font:600 1.5rem var(--hd);letter-spacing:-.02em}
+#x{font:500 14px var(--bd);color:var(--ink);background:none;border:1px solid var(--line);border-radius:99px;padding:7px 16px;cursor:pointer}
+#x:hover{border-color:var(--acc)}
+#db{overflow:auto;padding:8px 28px calc(40px + env(safe-area-inset-bottom,0px));flex:1}
+.lead{color:var(--mute);margin:20px 0 6px}
+.it{padding:20px 0;border-top:1px solid var(--line)}.it:first-of-type{border-top:0}
+.it h4{font:600 1.1rem var(--hd);margin-bottom:4px}.it p{color:var(--mute);font-size:.95rem}
+.res{color:var(--acc)!important;font-weight:500;margin-top:6px}
+.tg{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}.tg span{font-size:13px;border:1px solid var(--line);border-radius:99px;padding:4px 14px}
+.sim h5{font:500 13px var(--bd);color:var(--mute);margin:18px 0 8px}
+.row{display:flex;flex-wrap:wrap;gap:8px}
+.row button{font:500 14px var(--bd);color:var(--ink);background:transparent;border:1px solid var(--line);border-radius:99px;padding:8px 16px;cursor:pointer}
+.row button[aria-pressed=true]{border-color:var(--acc);color:var(--acc)}
+#go{margin-top:22px;font:600 15px var(--hd);background:var(--acc);color:var(--drawer);border:0;border-radius:10px;padding:13px 24px;cursor:pointer}
+#out{margin-top:18px;padding:16px;border:1px solid var(--line);border-radius:12px;font:13.5px/1.6 ui-monospace,Menlo,Consolas,monospace;color:var(--mute);min-height:5.8em}
+#out strong{font-size:15px}.ok{color:var(--ok)}.no{color:var(--no)}
+.mail{display:inline-block;margin-top:14px;font:800 clamp(1.3rem,4.5vw,2rem) var(--hd);color:var(--ink);text-decoration:none;border-bottom:3px solid var(--acc);overflow-wrap:anywhere}
+.stats{display:flex;flex-wrap:wrap;gap:12px 30px;margin-top:32px}.stats div{padding-left:14px;border-left:2px solid var(--acc)}.stats b{display:block;font:800 1.7rem/1.2 var(--hd);letter-spacing:-.02em}.stats span{font-size:13px;color:var(--mute)}
+.foot{grid-area:foot;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:13px;color:var(--mute);border-top:1px solid var(--line);padding-top:18px}.foot a{color:var(--mute);text-decoration:none}.foot a:hover{color:var(--acc)}
+#boot{position:fixed;inset:0;z-index:20;background:var(--bg);display:grid;place-items:center;text-align:center;transition:opacity .6s}#boot.hide{opacity:0;pointer-events:none}
+#boot p{font:500 14px var(--bd);color:var(--mute);margin-bottom:14px;transition:color .3s}#boot p.ok{color:var(--ok)}#boot i{display:block;width:220px;height:2px;background:var(--line);overflow:hidden}#boot u{display:block;height:100%;background:var(--acc);animation:fill 1.3s ease-in-out forwards}
+.dn{display:flex;gap:12px;margin-top:34px;padding-top:20px;border-top:1px solid var(--line)}.dn button{flex:1;text-align:left;background:none;border:1px solid var(--line);border-radius:12px;padding:12px 16px;color:var(--ink);font:500 15px var(--hd);cursor:pointer}.dn button:hover{border-color:var(--acc)}.dn small{display:block;color:var(--mute);font:400 12px var(--bd)}.dn .nx{text-align:right}
+.cp{margin-top:18px;font:500 14px var(--bd);color:var(--ink);background:none;border:1px solid var(--line);border-radius:99px;padding:8px 18px;cursor:pointer;display:block}.cp:hover{border-color:var(--acc)}
+.tline{margin-top:24px;padding-left:26px;border-left:1px solid var(--line)}.ex{position:relative;padding-bottom:32px}.ex:last-child{padding-bottom:6px}
+.ex::before{content:"";position:absolute;left:-32px;top:7px;width:11px;height:11px;border-radius:50%;background:var(--drawer);border:2px solid var(--acc)}.ex.now::before{background:var(--acc);box-shadow:0 0 0 5px var(--glow)}
+.ex h4{font:600 1.15rem var(--hd);letter-spacing:-.01em}.ex .co{color:var(--acc);font-weight:500;font-size:.95rem}.ex .dt{color:var(--mute);font-size:13px;margin:2px 0 10px}
+.ex ul{padding-left:18px;color:var(--mute);font-size:.95rem;display:grid;gap:6px}
+@keyframes fill{from{width:0}}
+@keyframes sweep{0%,100%{top:0}50%{top:calc(100% - 2px)}}
+@keyframes rise{from{opacity:0;transform:translateY(22px)}}
+@keyframes ping{70%{box-shadow:0 0 0 9px transparent}100%{box-shadow:0 0 0 0 transparent}}
+@media(max-width:860px){.hero{grid-template-columns:1fr;grid-template-areas:"badge" "intro" "tiles" "foot";gap:28px}.badge{width:min(220px,60%)}.tiles{grid-template-columns:1fr 1fr}.live{display:none}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<canvas id="gl" aria-hidden="true"></canvas>
+<header><div class="brand">Your Name</div><div style="display:flex;align-items:center"><span class="live"><i></i>All systems verified</span></div></header>
+<main class="hero" id="hero">
+<div class="intro rise"><h1>Your Name</h1><div class="role">Identity and Access Management Engineer</div><p>I make sure the right people get the right access, at the right time, for the right reasons.</p></div>
+<div class="badge rise d1" id="badge">
+<div class="bh">Access badge</div>
+<div class="photo">
+<svg viewBox="0 0 100 125" fill="none" stroke="currentColor" stroke-opacity=".35" stroke-width="1.2" aria-hidden="true"><circle cx="50" cy="48" r="16"/><path d="M18 118c0-22 14-34 32-34s32 12 32 34"/></svg>
+<img src="photo.jpg" alt="Portrait of Your Name" onerror="this.remove()">
+<span class="t">Your photo goes here</span><i class="scan"></i><b class="tl"></b><b class="tr"></b><b class="bl"></b><b class="br"></b>
+</div>
+<div class="bf"><strong>Your Name</strong><small>IAM Engineer, Your Company</small><br><span class="ver">Identity verified</span></div>
+</div>
+<nav class="tiles rise d2" aria-label="Sections">
+<button class="tile" data-s="focus"><b>Expertise</b><span>SSO, MFA, governance, privileged access</span></button>
+<button class="tile" data-s="experience"><b>Experience</b><span>Roles, companies and impact</span></button>
+<button class="tile" data-s="work"><b>Projects</b><span>Rollouts, automation and results</span></button>
+<button class="tile" data-s="policy"><b>Policy engine</b><span>Request access and watch the decision</span></button>
+<button class="tile" data-s="about"><b>About</b><span>Background, tools and certifications</span></button>
+<button class="tile" data-s="contact"><b>Contact</b><span>Let's talk about identity security</span></button>
+</nav>
+<footer class="foot"><span>© 2026 Your Name</span><span><a href="mailto:you@example.com">Email</a> &nbsp; <a href="#">LinkedIn</a> &nbsp; <a href="#">GitHub</a></span></footer>
+</main>
+<div id="boot" aria-hidden="true"><div><p id="bt">Verifying identity</p><i><u></u></i></div></div>
+<div id="veil"></div>
+<aside id="drawer" role="dialog" aria-modal="true" aria-labelledby="dt" aria-hidden="true">
+<div class="dh"><h2 id="dt"></h2><button id="x">Close</button></div>
+<div id="db"></div>
+</aside>
+
+<template id="t-focus"><p class="lead">The areas of identity security I own and improve every day.</p>
+<div class="it"><h4>Single sign-on</h4><p>SAML and OIDC integrations that put business apps behind one secure login.</p></div>
+<div class="it"><h4>Multi-factor authentication</h4><p>Phishing-resistant sign-in and step-up policies for sensitive actions.</p></div>
+<div class="it"><h4>Identity governance</h4><p>Joiner, mover and leaver automation with regular access reviews.</p></div>
+<div class="it"><h4>Privileged access</h4><p>Vaulting, session control and just-in-time elevation for admin accounts.</p></div>
+<div class="it"><h4>Least privilege</h4><p>Role design and RBAC that remove standing access nobody needs.</p></div></template>
+
+<template id="t-experience"><p class="lead">Replace these examples with your real roles, in order from newest to oldest.</p>
+<div class="tline">
+<div class="ex now"><h4>Identity and Access Management Engineer</h4><div class="co">Your Company</div><div class="dt">Month Year to Present</div><ul><li>Manage single sign-on and MFA for business applications.</li><li>Automate account creation, changes and removal for employees.</li><li>Run access reviews and fix excess permissions.</li></ul></div>
+<div class="ex"><h4>Previous role title</h4><div class="co">Previous Company</div><div class="dt">Month Year to Month Year</div><ul><li>One line about what you owned.</li><li>One line about what you improved.</li></ul></div>
+<div class="ex"><h4>Education</h4><div class="co">Your University</div><div class="dt">Degree, Year</div></div>
+</div></template>
+
+<template id="t-work"><p class="lead">Replace these examples with your real projects and numbers.</p>
+<div class="it"><h4>SSO rollout</h4><p>Moved business applications behind one identity provider.</p><p class="res">Result: one login, fewer password resets</p><div class="tg"><span>SAML</span><span>OIDC</span></div></div>
+<div class="it"><h4>Lifecycle automation</h4><p>Connected HR records to account creation and removal.</p><p class="res">Result: setup time cut from days to minutes</p><div class="tg"><span>Automation</span><span>HR integration</span></div></div>
+<div class="it"><h4>Privileged access migration</h4><p>Replaced shared admin passwords with a vault and approvals.</p><p class="res">Result: every admin session is logged</p><div class="tg"><span>PAM</span><span>Vault</span></div></div>
+<div class="it"><h4>Access recertification</h4><p>Quarterly reviews where managers confirm who needs what.</p><p class="res">Result: stale access removed on schedule</p><div class="tg"><span>Governance</span><span>Audit</span></div></div></template>
+
+<template id="t-policy"><div class="sim"><p class="lead" style="margin-top:20px">Pick who is asking and what they want. The request travels through the identity provider in the background.</p>
+<h5 id="l1">Identity</h5><div class="row" role="group" aria-labelledby="l1" id="roles"></div>
+<h5 id="l2">Resource</h5><div class="row" role="group" aria-labelledby="l2" id="res"></div>
+<button id="go">Request access</button><div id="out" aria-live="polite">Waiting for a request.</div></div></template>
+
+<template id="t-about"><p class="lead" style="color:var(--ink);font-size:1.1rem">Write two or three sentences about your path into identity security, what you own today and what you want to build next.</p>
+<div class="it"><h4>Tools</h4><div class="tg"><span>Okta</span><span>Microsoft Entra ID</span><span>SailPoint</span><span>CyberArk</span><span>Active Directory</span><span>Zero Trust</span></div></div>
+<div class="it"><h4>Certifications</h4><p>Add a certification, issuer and year.</p><p>Add another certification, issuer and year.</p></div></template>
+
+<template id="t-contact"><p class="lead">Open to conversations about identity, access and Zero Trust.</p>
+<a class="mail" href="mailto:you@example.com">you@example.com</a><button class="cp" id="cp">Copy email</button>
+<div class="it" style="margin-top:28px"><h4>LinkedIn</h4><p>Add your profile link</p></div>
+<div class="it"><h4>GitHub</h4><p>Add your profile link</p></div></template>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+(function(){
+var root=document.documentElement,body=document.body,isOpen=false,fire=function(){};
+
+var ROLES=['Intern','Engineer','Admin'],RES=['Wiki','Production database','Secrets vault'],role=0,res=0;
+var RULES=[[[1,'Allowed. Read-only wiki access for all staff.'],[0,'Denied. Interns have no production access.'],[0,'Denied. Vault access needs the Admin role.']],
+[[1,'Allowed. Standard employee access.'],[1,'Allowed after MFA step-up and an approved ticket.'],[0,'Denied. Not a member of the vault admin group.']],
+[[1,'Allowed. Standard employee access.'],[1,'Allowed. Access is logged and reviewed quarterly.'],[1,'Allowed for 1 hour. Just-in-time elevation with MFA.']]];
+function pills(id,items,get,set){var box=document.getElementById(id);
+items.forEach(function(n,i){var b=document.createElement('button');b.textContent=n;b.setAttribute('aria-pressed',i===get());
+b.onclick=function(){set(i);box.querySelectorAll('button').forEach(function(x,j){x.setAttribute('aria-pressed',j===i);});};box.appendChild(b);});}
+function initPolicy(){
+pills('roles',ROLES,function(){return role},function(i){role=i});pills('res',RES,function(){return res},function(i){res=i});
+document.getElementById('go').onclick=function(){var d=RULES[role][res];
+document.getElementById('out').innerHTML='<strong class="'+(d[0]?'ok':'no')+'">'+(d[0]?'ACCESS GRANTED':'ACCESS DENIED')+'</strong><br>'+ROLES[role]+' to '+RES[res].toLowerCase()+'<br>'+d[1];
+fire(res,!!d[0],true);};}
+
+var drawer=document.getElementById('drawer'),db=document.getElementById('db'),hero=document.getElementById('hero'),last=null;
+function openD(s,btn){last=btn;
+document.getElementById('dt').textContent=btn.querySelector('b').textContent;
+db.innerHTML=document.getElementById('t-'+s).innerHTML;db.scrollTop=0;if(s==='policy')initPolicy();addNav(s);if(s==='contact')initCopy();
+body.classList.add('open');isOpen=true;drawer.setAttribute('aria-hidden','false');hero.inert=true;
+setTimeout(function(){document.getElementById('x').focus();},60);}
+function closeD(){if(!isOpen)return;body.classList.remove('open');isOpen=false;drawer.setAttribute('aria-hidden','true');hero.inert=false;if(last)last.focus();}
+var ORDER=['focus','experience','work','policy','about','contact'];
+function addNav(s){var i=ORDER.indexOf(s),n=document.createElement('div');n.className='dn';
+[[i-1,'pv','Previous'],[i+1,'nx','Next']].forEach(function(x){var t=document.querySelector('.tile[data-s="'+ORDER[x[0]]+'"]');if(!t)return;
+var b=document.createElement('button');b.className=x[1];b.innerHTML='<small>'+x[2]+'</small>'+t.querySelector('b').textContent;
+b.onclick=function(){openD(ORDER[x[0]],t);};n.appendChild(b);});db.appendChild(n);}
+function initCopy(){var c=document.getElementById('cp');c.onclick=function(){try{navigator.clipboard.writeText('you@example.com');c.textContent='Copied';}catch(e){c.textContent='Select the email above to copy';}};}
+var bt=document.getElementById('bt'),bo=document.getElementById('boot');
+if(matchMedia('(prefers-reduced-motion:reduce)').matches){bo.remove();}else{
+setTimeout(function(){bt.textContent='Access granted';bt.className='ok';},1300);
+setTimeout(function(){bo.classList.add('hide');},1800);setTimeout(function(){bo.remove();},2500);}
+document.querySelectorAll('.tile').forEach(function(b){b.onclick=function(){openD(b.dataset.s,b);};});
+document.getElementById('x').onclick=closeD;document.getElementById('veil').onclick=closeD;
+addEventListener('keydown',function(e){
+if(e.key==='Escape')closeD();
+if(e.key==='Tab'&&isOpen){var f=drawer.querySelectorAll('button,a[href]');if(!f.length)return;var a=f[0],z=f[f.length-1];
+if(e.shiftKey&&document.activeElement===a){e.preventDefault();z.focus();}else if(!e.shiftKey&&document.activeElement===z){e.preventDefault();a.focus();}}});
+var mx=0,my=0,badge=document.getElementById('badge');
+addEventListener('pointermove',function(e){mx=e.clientX/innerWidth-.5;my=e.clientY/innerHeight-.5;
+badge.style.setProperty('--ry',(mx*12).toFixed(1)+'deg');badge.style.setProperty('--rx',(-my*9).toFixed(1)+'deg');});
+
+if(!window.THREE)return;
+var r=new THREE.WebGLRenderer({canvas:document.getElementById('gl'),alpha:true,antialias:true});r.setPixelRatio(Math.min(devicePixelRatio,2));
+var s=new THREE.Scene(),cam=new THREE.PerspectiveCamera(45,1,.1,100);cam.position.z=10;
+var g=new THREE.Group();s.add(g);
+var C={acc:0xffb547,cool:0x6ea8ff,res:0xe9eefc,ok:0x4fe3b4,no:0xff6178},O=new THREE.Vector3();
+function mat(c,o,w){return new THREE.MeshBasicMaterial({color:c,transparent:true,opacity:o==null?1:o,wireframe:!!w});}
+var core=new THREE.Mesh(new THREE.IcosahedronGeometry(.55,1),mat(C.acc,.9,true)),heart=new THREE.Mesh(new THREE.SphereGeometry(.2,16,16),mat(C.acc));
+var shield=new THREE.Mesh(new THREE.IcosahedronGeometry(.95,1),mat(C.acc,.22,true));shield.userData.f=0;
+g.add(core,heart,shield);
+var rings=[];for(var k=0;k<3;k++){var rg=new THREE.Mesh(new THREE.TorusGeometry(1.3+k*.28,.008,8,140),mat(C.cool,.55));rg.rotation.set(k*1.1,k*.7,0);g.add(rg);rings.push(rg);}
+var N=56,ids=[],arr=[];
+for(var i=0;i<N;i++){var y=1-i/(N-1)*2,q=Math.sqrt(1-y*y),th=i*2.399963;var v=new THREE.Vector3(Math.cos(th)*q,y,Math.sin(th)*q).multiplyScalar(3.6);ids.push(v);arr.push(v.x,v.y,v.z);}
+var pg=new THREE.BufferGeometry();pg.setAttribute('position',new THREE.Float32BufferAttribute(arr,3));
+var nodes=new THREE.Points(pg,new THREE.PointsMaterial({size:.16,color:C.cool,transparent:true,opacity:.95,sizeAttenuation:true}));g.add(nodes);
+var ep=[],sp=[];for(var a=0;a<N;a++){sp.push(0,0,0,ids[a].x,ids[a].y,ids[a].z);for(var b=a+1;b<N;b++)if(ids[a].distanceTo(ids[b])<2.05)ep.push(ids[a].x,ids[a].y,ids[a].z,ids[b].x,ids[b].y,ids[b].z);}
+function lines(p,o){var gm=new THREE.BufferGeometry();gm.setAttribute('position',new THREE.Float32BufferAttribute(p,3));return new THREE.LineSegments(gm,new THREE.LineBasicMaterial({color:C.cool,transparent:true,opacity:o}));}
+g.add(lines(ep,.28),lines(sp,.07));
+var rp=[],rm=[];for(var c=0;c<3;c++){var an=c/3*6.2832+.5,v2=new THREE.Vector3(Math.cos(an)*2.2,Math.sin(an*2)*.7,Math.sin(an)*2.2);rp.push(v2);
+var bx=new THREE.Mesh(new THREE.BoxGeometry(.36,.36,.36),mat(C.res,.9,true));bx.position.copy(v2);bx.userData.f=0;g.add(bx);rm.push(bx);
+g.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints([O,v2]),new THREE.LineBasicMaterial({color:C.res,transparent:true,opacity:.25})));}
+var scan=new THREE.Mesh(new THREE.RingGeometry(.97,1,120),new THREE.MeshBasicMaterial({color:C.acc,transparent:true,side:THREE.DoubleSide}));scan.rotation.x=Math.PI/2;g.add(scan);
+var dp=[];for(var d=0;d<450;d++)dp.push((Math.random()-.5)*26,(Math.random()-.5)*16,(Math.random()-.5)*14-3);
+var dg=new THREE.BufferGeometry();dg.setAttribute('position',new THREE.Float32BufferAttribute(dp,3));
+var dust=new THREE.Points(dg,new THREE.PointsMaterial({size:.035,color:C.cool,transparent:true,opacity:.5}));s.add(dust);
+var pulses=[],col=new THREE.Color();
+fire=function(ri,ok,big){var col=ok?C.ok:C.no,gh=[];
+for(var j=0;j<7;j++){var m=new THREE.Mesh(new THREE.SphereGeometry((big?.15:.1)*(1-j*.1),10,10),mat(col,1-j*.14));g.add(m);gh.push(m);}
+pulses.push({gh:gh,from:ids[Math.floor(Math.random()*N)],to:rp[ri],ri:ri,ok:ok,t:0});};
+var reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+if(!reduce)setInterval(function(){fire(Math.floor(Math.random()*3),Math.random()>.27,false);},900);
+function size(){r.setSize(innerWidth,innerHeight,false);cam.aspect=innerWidth/innerHeight;cam.updateProjectionMatrix();}
+addEventListener('resize',size);size();
+var t=0,gx=0,sCur=1,rb=new THREE.Color(C.res),rno=new THREE.Color(C.no),rok=new THREE.Color(C.ok),ba=new THREE.Color(C.acc);
+function at(q,tt){var e=Math.max(0,tt);return e<1?new THREE.Vector3().lerpVectors(q.from,O,e*e*(3-2*e)):(q.ok?new THREE.Vector3().lerpVectors(O,q.to,Math.min(e-1,1)):O.clone());}
+function tick(){
+var wide=innerWidth>860;t+=reduce?0:(isOpen?.0065:.004);
+var tx=wide?(isOpen?-2.6:0):0,ts=wide?1:.62,ty=wide?0:1.1;
+gx+=(tx-gx)*.05;sCur+=(ts-sCur)*.08;g.position.set(gx,g.position.y+(ty-g.position.y)*.08,0);g.scale.setScalar(sCur);
+g.rotation.y=t+mx*.9;g.rotation.x=my*.5+Math.sin(t*.6)*.15;
+cam.position.x+=(mx*.8-cam.position.x)*.04;cam.lookAt(0,0,0);
+core.rotation.y=t*3;core.rotation.x=t*1.5;heart.scale.setScalar(1+Math.sin(t*20)*.12);
+rings.forEach(function(rg,i){rg.rotation.x+=.004*(i+1);rg.rotation.y+=.006;});
+dust.rotation.y=t*.15;
+var sp2=((t*60)%260)/260;scan.scale.setScalar(.2+sp2*4.6);scan.material.opacity=(1-sp2)*.55;
+shield.userData.f*=.94;col.copy(ba).lerp(rno,shield.userData.f);shield.material.color.copy(col);shield.material.opacity=.22+shield.userData.f*.6;
+rm.forEach(function(b){b.userData.f*=.94;b.material.color.copy(rb).lerp(rok,b.userData.f);b.scale.setScalar(1+b.userData.f*.9);b.rotation.x+=.012;b.rotation.y+=.014;});
+for(var i=pulses.length-1;i>=0;i--){var q=pulses[i];q.t+=.014;
+q.gh.forEach(function(m,j){if(q.ok||q.t<1){m.position.copy(at(q,q.t-j*.04));}else{m.position.copy(O);var k=1+(q.t-1)*4;m.scale.setScalar(k);m.material.opacity=Math.max(0,(1-j*.14)*(1-(q.t-1)*1.6));}});
+if(!q.ok&&q.t>=1&&!q.hit){q.hit=1;shield.userData.f=1;}
+if(q.ok&&q.t>=2&&!q.hit){q.hit=1;rm[q.ri].userData.f=1;}
+if(q.t>=2||(!q.ok&&q.t>=1.65)){q.gh.forEach(function(m){g.remove(m);});pulses.splice(i,1);}}
+r.render(s,cam);requestAnimationFrame(tick);}
+tick();
+})();
+</script>
+</body>
+</html>
